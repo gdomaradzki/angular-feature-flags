@@ -1,10 +1,10 @@
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { NestedPaths, VisionNextFeatures } from './feature-flags.types';
+import { NestedPaths, WorkspaceFeatures } from './feature-flags.types';
 
 @Injectable()
-export class FeatureFlagsService<T = VisionNextFeatures> {
+export class FeatureFlagsService<T = WorkspaceFeatures> {
   private flags$ = new BehaviorSubject<Partial<T>>({});
 
   constructor(

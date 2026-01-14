@@ -4,13 +4,13 @@
 <div class="content" role="main">
   <h1>Feature Flags Test</h1>
 
-  <div *feature="'home/red_button'">
+  <div *feature="redButton">
     <button style="background: red; color: white; padding: 10px;">
       Red Button (should show)
     </button>
   </div>
 
-  <div *feature="'home/blue_button'">
+  <div *feature="blueButton">
     <button style="background: blue; color: white; padding: 10px;">
       Blue Button (should NOT show)
     </button>

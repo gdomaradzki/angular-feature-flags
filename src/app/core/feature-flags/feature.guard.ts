@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { FeatureFlagsService } from './feature-flags.service';
-import { VisionNextFeatureKey } from './feature-flags.types';
+import { WorkspaceFeatureKey } from './feature-flags.types';
 
 @Injectable({ providedIn: 'root' })
 export class FeatureGuard implements CanActivate {
@@ -11,7 +11,7 @@ export class FeatureGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    const feature = route.data['feature'] as VisionNextFeatureKey;
+    const feature = route.data['feature'] as WorkspaceFeatureKey;
     const fallbackRoute = route.data['featureFallback'] as string | undefined;
 
     if (!feature) {

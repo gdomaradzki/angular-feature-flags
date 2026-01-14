@@ -9,12 +9,12 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { FeatureFlagsService } from './feature-flags.service';
-import { NestedPaths, VisionNextFeatures } from './feature-flags.types';
+import { NestedPaths, WorkspaceFeatures } from './feature-flags.types';
 
 @Directive({
   selector: '[feature]',
 })
-export class FeatureDirective<T = VisionNextFeatures>
+export class FeatureDirective<T = WorkspaceFeatures>
   implements OnInit, OnDestroy
 {
   @Input() feature!: NestedPaths<T>;

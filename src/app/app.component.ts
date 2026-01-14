@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FeatureFlagsService } from '@core/feature-flags';
+import { FeatureFlagsService, WorkspaceFeatureKey } from '@core/feature-flags';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +7,8 @@ import { FeatureFlagsService } from '@core/feature-flags';
 })
 export class AppComponent implements OnInit {
   title = 'feature-flags-test';
+  redButton: WorkspaceFeatureKey = 'home/red_button';
+  blueButton: WorkspaceFeatureKey = 'home/blue_button';
 
   constructor(private featureFlags: FeatureFlagsService) {}
 

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeatureGuard } from '@core/feature-flags';
 import { HomeComponent } from './home/home.component';
 import { RedComponent } from './red/red.component';
 import { BlueComponent } from './blue/blue.component';
+import { featureRoute } from '@core/feature-flags/feature-flags.utils';
 
 const routes: Routes = [
   {
@@ -15,24 +15,19 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  {
-    path: 'red',
+  featureRoute({
+    path: 'new-dashboard',
     component: RedComponent,
-    canActivate: [FeatureGuard],
-    data: {
-      feature: 'home/red_button',
-      featureFallback: '/home',
-    },
-  },
-  {
-    path: 'blue',
+    feature: 'home/red_button',
+    featureFallback: '/home',
+  }),
+
+  featureRoute({
+    path: 'experimental',
     component: BlueComponent,
-    canActivate: [FeatureGuard],
-    data: {
-      feature: 'home/blue_button',
-      featureFallback: '/home',
-    },
-  },
+    feature: 'home/blue_button',
+    featureFallback: '/home',
+  }),
 ];
 
 @NgModule({

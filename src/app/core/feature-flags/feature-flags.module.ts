@@ -1,14 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FeatureDirective } from './feature.directive';
 import { FeatureFlagsService } from './feature-flags.service';
-import { VisionNextFeatures } from './feature-flags.types';
+import { WorkspaceFeatures } from './feature-flags.types';
 
 @NgModule({
   declarations: [FeatureDirective],
   exports: [FeatureDirective],
 })
 export class FeatureFlagsModule {
-  static forRoot<T = VisionNextFeatures>(
+  static forRoot<T = WorkspaceFeatures>(
     initialFlags?: Partial<T>
   ): ModuleWithProviders<FeatureFlagsModule> {
     return {
