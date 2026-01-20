@@ -26,14 +26,14 @@ export class FeatureDirective<T = WorkspaceFeatures>
   constructor(
     private templateRef: TemplateRef<unknown>,
     private viewContainer: ViewContainerRef,
-    private featureFlags: FeatureFlagsService<T>
+    private featureFlags: FeatureFlagsService<T>,
   ) {}
 
   ngOnInit(): void {
     this.featureFlags
       .isEnabled$(this.feature)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(enabled => this.updateView(enabled));
+      .subscribe((enabled) => this.updateView(enabled));
   }
 
   ngOnDestroy(): void {

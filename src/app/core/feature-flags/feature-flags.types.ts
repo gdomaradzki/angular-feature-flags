@@ -23,6 +23,12 @@ export interface WorkspaceFeatures {
     red_button: boolean;
     blue_button: boolean;
   };
+  fi_listing: boolean;
+  test: {
+    nested: {
+      wow: boolean;
+    }
+  }
 }
 
 export interface FeatureRouteData<T = WorkspaceFeatures> {

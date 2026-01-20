@@ -4,19 +4,19 @@
 <div class="content" role="main">
   <h1>Feature Flags Test</h1>
 
-  <div *feature="redButton">
+  <div *feature="flag('home/red_button')">
     <button style="background: red; color: white; padding: 10px;">
       Red Button (should show)
     </button>
   </div>
 
-  <div *feature="blueButton">
+  <div *feature="flag('home/blue_button')">
     <button style="background: blue; color: white; padding: 10px;">
       Blue Button (should NOT show)
     </button>
   </div>
 
-  <ng-container *feature="'home/blue_button'; else blueDisabled">
+  <ng-container *feature="flag('home/blue_button'); else blueDisabled">
     <button style="background: blue; color: white;">Blue Button</button>
   </ng-container>
   <ng-template #blueDisabled>

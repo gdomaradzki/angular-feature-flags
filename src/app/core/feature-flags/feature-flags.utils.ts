@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { FeatureGuard } from './feature.guard';
-import { NestedPaths, WorkspaceFeatures } from './feature-flags.types';
+import { NestedPaths, WorkspaceFeatures, WorkspaceFeatureKey } from './feature-flags.types';
 
 export function featureRoute<T = WorkspaceFeatures>(config: {
   path: string;
@@ -21,4 +21,8 @@ export function featureRoute<T = WorkspaceFeatures>(config: {
     },
     children: config.children,
   };
+}
+
+export function flag<K extends WorkspaceFeatureKey>(key: K): K {
+  return key;
 }
